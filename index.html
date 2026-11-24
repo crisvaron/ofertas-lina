@@ -4,7 +4,7 @@
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="referrer" content="no-referrer">
 <meta name="color-scheme" content="light dark">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-OhCeDO7SwgrOKheQZuto/ed93EdqxF/gm/z6zjo1qzU='; style-src 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src https://lina-ofertas-relay.crisvaron.workers.dev; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-azBTUql91uulWF/u1wKOmzoxz4L0YBSH6zkEknd/eFo='; style-src 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src https://lina-ofertas-relay.crisvaron.workers.dev; form-action 'none'; base-uri 'none'">
 <title>Ofertas · Lina · 2026-11-24</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -353,7 +353,8 @@ footer{max-width:1180px;margin:0 auto;padding:0 20px 28px;color:var(--muted);fon
   /* sort */
   function sortItems(){if(!list||!sortSel)return;var m=sortSel.value,its=items();
     its.sort(function(x,y){var a=x.dataset,b=y.dataset;
-      var gx=x.classList.contains('pend'),gy=y.classList.contains('pend');if(gx!==gy)return gx?1:-1;
+      var gx=x.classList.contains('gone'),gy=y.classList.contains('gone');if(gx!==gy)return gx?1:-1;
+      var px=x.classList.contains('pend'),py=y.classList.contains('pend');if(px!==py)return px?1:-1;
       if(m==='fecha')return (b.fecha||'').localeCompare(a.fecha||'')||(+b.rank)-(+a.rank);
       if(m==='empresa')return (a.empresa||'').localeCompare(b.empresa||'','es');
       if(m==='recomendadas')return (+b.score)-(+a.score)||(b.fecha||'').localeCompare(a.fecha||'');
